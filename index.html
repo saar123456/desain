@@ -14,33 +14,34 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f4f6f8;
+            padding: 1rem; /* Tambahan padding untuk layar kecil */
         }
 
         /* Container utama */
         .login-container {
-            background-color: hsl(118, 85%, 64%);
+            background-color: hsl(177, 85%, 64%);
             padding: 2rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             text-align: center;
             width: 100%;
-            max-width: 350px; /* Maksimal lebar */
-            margin: 1rem;
+            max-width: 400px; /* Lebar maksimum */
+            margin: 1rem auto; /* Pusatkan dengan jarak */
+            box-sizing: border-box;
         }
 
         /* Gambar logo atau foto */
         .login-container img {
-    width: 120px; /* Lebar gambar */
-    height: 120px; /* Tinggi gambar */
-    border-radius: 15px; /* Sudut melengkung */
-    margin: 1.5rem auto; /* Pusatkan gambar dengan jarak atas dan bawah */
-    object-fit: cover; /* Pastikan gambar proporsional */
-    border: 3px solid #6e0788c9; /* Garis tepi */
-}
-
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin: 1rem auto;
+            object-fit: cover;
+            border: 3px solid #6e0788c9;
+        }
 
         /* Judul */
         .login-container h2 {
@@ -68,6 +69,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            box-sizing: border-box; /* Mencegah overflow */
         }
 
         /* Tombol Login */
@@ -75,7 +77,7 @@
             display: block;
             width: 100%;
             padding: 0.7rem;
-            background-color: #b11ad6c9;
+            background-color: #cde01d;
             color: #ffffff;
             border: none;
             border-radius: 5px;
@@ -85,7 +87,23 @@
         }
 
         .btn:hover {
-            background-color: #a10dc2c9;
+            background-color: #83910c;
+        }
+
+        /* Link Lupa Password */
+        .forgot-password {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #000000;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
         }
 
         /* Social login */
@@ -99,7 +117,7 @@
             margin: 0 0.5rem;
             text-decoration: none;
             font-size: 1.5rem;
-            color: #ac17d1c9;
+            color: #ece6e6;
         }
 
         .footer-text {
@@ -111,34 +129,47 @@
         /* Responsif untuk layar kecil */
         @media (max-width: 480px) {
             .login-container {
-                padding: 1.5rem; /* Kurangi padding */
+                padding: 1.5rem; /* Kurangi padding untuk layar kecil */
             }
+
             .login-container img {
-                width: 100px; /* Perkecil gambar */
-                height: 100px;
+                width: 80px; /* Perkecil gambar */
+                height: 80px;
             }
+
+            h2 {
+                font-size: 1.2rem; /* Perkecil ukuran teks judul */
+            }
+
             .btn {
                 font-size: 0.9rem;
-                padding: 0.6rem;
+                padding: 0.6rem; /* Sesuaikan padding tombol */
+            }
+
+            .forgot-password {
+                font-size: 0.8rem; /* Perkecil link lupa password */
+            }
+
+            .footer-text {
+                font-size: 0.7rem; /* Perkecil footer */
             }
         }
 
         @media (max-width: 768px) {
             .login-container {
-                max-width: 90%; /* Lebar maksimum 90% untuk tablet */
+                max-width: 90%; /* Gunakan 90% lebar untuk tablet */
             }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <!-- Tambahkan foto pengelola keuangan -->
         <img src="as.jpg" alt="Foto Pengelola Keuangan">
         <h2>Selamat Datang di Aplikasi Pengelola Keuangan</h2>
         <form action="#" method="POST">
             <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Masukkan email atau nomer telpon anda" required>
+                <label for="email">Email / Nomor Telpon</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email atau nomor telpon Anda" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
@@ -146,6 +177,9 @@
             </div>
             <button type="submit" class="btn">Login</button>
         </form>
+        <div class="forgot-password">
+            <a href="#">Lupa Password?</a>
+        </div>
         <div class="social-login">Atau login dengan</div>
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook"></i></a>
